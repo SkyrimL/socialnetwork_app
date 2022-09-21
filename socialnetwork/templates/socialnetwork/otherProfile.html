@@ -1,0 +1,44 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block Top %}
+<div class='topheader'>
+    <a id="id_login_link" href="{% url 'login' %}">
+        <a id="id_nav_profile" href="{% url 'myProfile' %}">{{user.first_name}} {{user.last_name}}</a>
+        <a id="id_nav_global_stream" href="{% url 'home' %}">Global</a>
+        <a id="id_nav_follower_stream" href="{% url 'followerStream' %}">Follower</a>
+        <a id="id_nav_logout"  href="{% url 'logout' %}">Logout</a></li>
+    </a>
+<div>
+{% endblock %}
+
+{% block Main %} 
+<div id="id_page_name">Profile Page for {{profile.user.first_name}} {{profile.user.last_name}}</div>
+
+{% if not profile.picture %}
+    <img src="static/socialnetwork/jiaran.jpg" id="id_user_picture"></img>
+{% else %}
+<!-- 这里是profile id，不是user.profile -->
+    <img src="{% url 'photo' profile.id %}" id="id_user_picture"></img>
+{% endif %}
+
+
+
+<br>
+
+
+<span id="id_user_bio">{{profile.bio}}</span>  
+<br>
+
+{% if profile.user in request.user.profile.following.all %}
+    <form action = "{% url 'unfollow' profile.user.id %}" method="POST">
+        <button id="id_unfollow">Unfollow</button>
+        {% csrf_token %}
+    </form>
+{% else %}
+    <form action = "{% url 'follow' profile.user.id %}" method="POST">
+        <button id="id_follow">follow</button>
+        {% csrf_token %}
+    </form>
+{% endif %}
+
+{% endblock %}

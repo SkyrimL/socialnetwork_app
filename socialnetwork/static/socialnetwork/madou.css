@@ -1,0 +1,119 @@
+.header {
+	background-color: #66ccff;
+	display: inline-block;
+	width: 100%;
+	line-height: 60px;
+	color: #333;
+	display: inline-block;
+	margin: 0;
+	line-height: 28px;
+	letter-spacing: 0.28px;
+	padding-right: 30px;
+	text-transform: capitalize;
+}
+
+
+.topheader{
+	background-color: #f2f2f2;
+	display: inline-block;
+	width: 100%;
+	line-height: 60px;
+	color: #333;
+	display: inline-block;
+	margin: 0;
+	line-height: 28px;
+	letter-spacing: 0.28px;
+	padding-right: 30px;
+	margin-top: 30px ;
+	margin-bottom: 30px;
+	font-size:  20px;
+
+}
+
+.top{
+	background-color: #f2f2f2;
+	display: inline-block;
+	width: 100%;
+	line-height: 60px;
+	color: #333;
+	display: inline-block;
+	margin: 0;
+	line-height: 28px;
+	letter-spacing: 0.28px;
+	padding-right: 30px;
+	margin-top: 30px ;
+	margin-bottom: 30px;
+	margin-left: 30px;
+
+}
+
+.login{
+	font-size: 20px
+}
+
+.span{
+	font-weight: bold;
+	font-style: italic;
+	font-size:  20px;
+}
+
+
+.post{
+	font-size:  20px
+}
+
+#id_username{
+	font-size: 20px
+}
+
+#id_password{
+	font-size: 20px
+}
+
+#id_login_button{
+	font-size:  20px
+}
+
+#id_confirm_password{
+	font-size:  20px
+}
+
+#id_email{
+	font-size:  20px
+}
+
+#id_first_name{
+	font-size:  20px
+}
+
+#id_last_name{
+	font-size:  20px
+}
+
+#id_post_text_1{
+	font-size:  20px
+}
+
+#id_comment_text_2{
+	font-size:  20px
+}
+
+#id_register_button{
+	font-size:  20px
+}
+
+#id_post_date_time_1{
+	font-size:  20px
+}
+
+#id_comment_date_time_2{
+	font-size:  20px
+}
+
+#id_post_profile_1{
+	font-size:  20px
+}
+
+#id_comment_profile_2{
+	font-size:  20px
+}

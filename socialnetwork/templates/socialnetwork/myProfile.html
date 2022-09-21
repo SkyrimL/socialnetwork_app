@@ -1,0 +1,53 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block Top %}
+<div>
+    <a id="id_login_link" href="{% url 'login' %}">
+        <a id="id_nav_profile" href="{% url 'myProfile' %}">{{user.first_name}} {{user.last_name}}</a>
+        <a id="id_nav_global_stream" href="{% url 'home' %}">Global</a>
+        <a id="id_nav_follower_stream" href="{% url 'followerStream' %}">Follower</a>
+        <a id="id_nav_logout"  href="{% url 'logout' %}">Logout</a></li>
+    </a>
+<div>
+{% endblock %}
+
+{% block Main %}
+
+<div id="id_page_name">Profile Page for {{user.first_name}} {{user.last_name}}</div>
+
+<br>
+
+
+<!-- 这里的profile是Profile里的table的一行，是从view里传进去的 -->
+{% if not profile.picture %}
+    <img src="static/socialnetwork/unnamed.jpg" id="id_user_picture"></img>
+{% else %}
+<!-- 这里是profile id，不是user.profile -->
+    <img src="{% url 'photo' profile.id %}" id="id_user_picture"></img>
+{% endif %}
+
+<!-- 这里的form是从view里传进去的,也不知道是不是真的叫这个 -->
+<form action ="{% url 'myProfile' %}" method="POST" enctype="multipart/form-data">
+    {{form}}
+    {% csrf_token %}
+    <button id="id_update_profile_button">Submit</button>
+</form>
+
+<br>
+
+
+
+
+
+<div>
+    You are following:
+    <ul>
+        {% for user in profile.following.all %}
+            <li>
+                <a href="{% url 'otherProfile' user.id %}" id="id_profile_link_{{user}}">{{profile.user.id}}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>   
+</div>
+{% endblock %}
